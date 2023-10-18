@@ -6,16 +6,25 @@ header {
     height: 100px;
     background-color: black;
     color: white;
-    background-color: rgb(0, 0, 0);
+    background-color: #002A62;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 24px;
 }
+    
+header img {
+    width: 60px;
+}
 
+header h2 {
+   font-size: 40px;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
 
 header a {
-    
     color: #fff;
     font-size: 18px;
     margin-left: 1vh;
@@ -26,5 +35,5 @@ header a {
 
 header a:hover{
     transition: 1s;
-    color:blue
+    color: #0079DD
 }
