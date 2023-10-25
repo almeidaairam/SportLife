@@ -1,13 +1,12 @@
 // import { Link } from 'react-router-dom'
-
+import Qrlogo from '../../assets/img/Qrlogo.png'
+import '../contato/contato.css'
 
 export function Contato(){
     return(
 
         <div>
-            <h1>Bem vindo a página de contato</h1>
-            <h3> Telefone: (xx) XXXX-XXXX</h3>
-            <hr/>
+            <img alt="Logo QRcode" src={Qrlogo} className='logo'/>
         </div>
 
     )
