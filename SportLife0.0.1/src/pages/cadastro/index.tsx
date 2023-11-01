@@ -7,10 +7,9 @@ import { useState } from 'react'
 export function Cadastro(){
     const [formData, setFormData] = useState({
         nome: '',
-        cpf: '',
-        telefone: '',
+        user: '',
         email: '',
-        valorGasto: '',
+        senha: '',
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +45,7 @@ export function Cadastro(){
                     <input
                         type="text"
                         name="nome de usuário"
-                        value={formData.cpf}
+                        value={formData.user}
                         onChange={handleChange}
                         required
                     />
@@ -56,7 +55,7 @@ export function Cadastro(){
                     <input
                         type="email"
                         name="e-mail"
-                        value={formData.telefone}
+                        value={formData.email}
                         onChange={handleChange}
                         required
                     />
@@ -66,7 +65,7 @@ export function Cadastro(){
                     <input
                         type="password"
                         name="senha"
-                        value={formData.valorGasto}
+                        value={formData.senha}
                         onChange={handleChange}
                         required
                     />
