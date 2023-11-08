@@ -1,42 +1,63 @@
-// import { Link } from 'react-router-dom'
 import '../cadastro/cadastro.css'
-import { useState } from 'react'
+import { useState, FormEvent } from 'react'
+import { Link, useNavigate } from "react-router-dom";
+import {db} from '../../service/firebaseConnection'
+import {
+    addDoc,
+    collection,
+    // onSnapshot,
+    // query,
+    // orderBy,
+    // doc,
+    // deleteDoc,
+} from 'firebase/firestore'
 
 
 
 export function Cadastro(){
-    const [formData, setFormData] = useState({
-        nome: '',
-        user: '',
-        email: '',
-        senha: '',
-    });
+    const navigate = useNavigate();
+    const [nome, setNome] = useState("")
+    const [user, setUser] = useState("")
+    const [email, setEmail] = useState("")
+    const [senha, setSenha] = useState("")
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
-
-    const handleSubmit = (e: React.FormEvent) => {
+    function Cadastrar(e: FormEvent) {
         e.preventDefault();
-        // Aqui você pode enviar os dados do cliente para onde desejar
-        console.log('Dados do cliente:', formData);
-    };
+        if (nome === " " || user === "" || email === "" || senha === "") {
+            alert("Preencha todos os campos")
+            return
+        }
+
+    //     addDoc(collection(db, "CADASTRO"), {
+    //         nome: nome,
+    //         nome_usuario: user,
+    //         email: email,
+    //         senha: senha,
+    //         created: new Date()
+
+    //     })
+    //         .then(() => {
+    //             console.log("CADASTRADO COM SUCESSO")
+    //             navigate("/", { replace: true })
+
+    //         })
+    //         .catch((error) => {
+    //             console.log("ERRO AO CADASTRAR NO BANCO" + error)
+    //         })
+    }
 
     return (
         <div >
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={Cadastrar}>
                 <div>
                     <h2>Cadastro</h2>
+                    <br />
                     <label>Nome:</label>
                     <input
                         type="text"
                         name="nome"
-                        value={formData.nome}
-                        onChange={handleChange}
+                        value={nome}
+                        onChange={(e) => setNome(e.target.value)}
                         required
                     />
                 </div>
@@ -45,8 +66,8 @@ export function Cadastro(){
                     <input
                         type="text"
                         name="nome de usuário"
-                        value={formData.user}
-                        onChange={handleChange}
+                        value={user}
+                        onChange={(e) => setUser(e.target.value)}
                         required
                     />
                 </div>
@@ -55,8 +76,8 @@ export function Cadastro(){
                     <input
                         type="email"
                         name="e-mail"
-                        value={formData.email}
-                        onChange={handleChange}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         required
                     />
                 </div>
@@ -65,8 +86,8 @@ export function Cadastro(){
                     <input
                         type="password"
                         name="senha"
-                        value={formData.senha}
-                        onChange={handleChange}
+                        value={senha}
+                        onChange={(e) => setSenha(e.target.value)}
                         required
                     />
                 </div>
@@ -74,12 +95,6 @@ export function Cadastro(){
             </form>
         </div>
     );
-}
-    
+}   
 export default Cadastro;
-
-
-
-
-
 

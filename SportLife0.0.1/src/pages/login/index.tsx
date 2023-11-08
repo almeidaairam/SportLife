@@ -3,7 +3,6 @@ import '../login/login.css'
 import { useState } from 'react'
 
 
-
 export function Login(){
     const [formData, setFormData] = useState({
         user: '',
