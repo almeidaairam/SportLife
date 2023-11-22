@@ -1,49 +1,50 @@
 import '../cadastro/cadastro.css'
 import { useState, FormEvent } from 'react'
 import { Link, useNavigate } from "react-router-dom";
+import {Input} from "../../Components/Input/index"
 import {db} from '../../service/firebaseConnection'
 import {
     addDoc,
     collection,
-    // onSnapshot,
-    // query,
-    // orderBy,
-    // doc,
-    // deleteDoc,
+    onSnapshot,
+    query,
+    orderBy,
+    doc,
+    deleteDoc,
 } from 'firebase/firestore'
 
 
 
 export function Cadastro(){
     const navigate = useNavigate();
-    const [nome, setNome] = useState("")
-    const [user, setUser] = useState("")
-    const [email, setEmail] = useState("")
-    const [senha, setSenha] = useState("")
+    const [nomeInput, setNome] = useState("")
+    const [userInput, setUser] = useState("")
+    const [emailInput, setEmail] = useState("")
+    const [senhaInput, setSenha] = useState("")
 
     function Cadastrar(e: FormEvent) {
         e.preventDefault();
-        if (nome === " " || user === "" || email === "" || senha === "") {
+        if (nomeInput === " " || userInput === "" || emailInput === "" || senhaInput === "") {
             alert("Preencha todos os campos")
             return
         }
 
-    //     addDoc(collection(db, "CADASTRO"), {
-    //         nome: nome,
-    //         nome_usuario: user,
-    //         email: email,
-    //         senha: senha,
-    //         created: new Date()
+        addDoc(collection(db, "CADASTRO"), {
+            nome: nomeInput,
+            usuario: userInput,
+            email: emailInput,
+            senha: senhaInput,
+            //created: new Date()
 
-    //     })
-    //         .then(() => {
-    //             console.log("CADASTRADO COM SUCESSO")
-    //             navigate("/", { replace: true })
+        })
+            .then(() => {
+                console.log("CADASTRADO COM SUCESSO")
+                navigate("/", { replace: true })
 
-    //         })
-    //         .catch((error) => {
-    //             console.log("ERRO AO CADASTRAR NO BANCO" + error)
-    //         })
+            })
+            .catch((error) => {
+                console.log("ERRO AO CADASTRAR NO BANCO" + error)
+            })
     }
 
     return (
@@ -53,42 +54,42 @@ export function Cadastro(){
                     <h2>Cadastro</h2>
                     <br />
                     <label>Nome:</label>
-                    <input
+                    <Input
                         type="text"
                         name="nome"
-                        value={nome}
+                        value={nomeInput}
                         onChange={(e) => setNome(e.target.value)}
-                        required
+                     
                     />
                 </div>
                 <div>
                     <label>Nome de usuário:</label>
-                    <input
+                    <Input
                         type="text"
                         name="nome de usuário"
-                        value={user}
+                        value={userInput}
                         onChange={(e) => setUser(e.target.value)}
-                        required
+                       
                     />
                 </div>
                 <div>
                     <label>E-mail:</label>
-                    <input
+                    <Input
                         type="email"
                         name="e-mail"
-                        value={email}
+                        value={emailInput}
                         onChange={(e) => setEmail(e.target.value)}
-                        required
+                        
                     />
                 </div>
                 <div>
                     <label>Senha:</label>
-                    <input
+                    <Input
                         type="password"
                         name="senha"
-                        value={senha}
+                        value={senhaInput}
                         onChange={(e) => setSenha(e.target.value)}
-                        required
+                       
                     />
                 </div>
                 <button id="btt" type="submit">Enviar</button>
@@ -96,5 +97,3 @@ export function Cadastro(){
         </div>
     );
 }   
-export default Cadastro;
-

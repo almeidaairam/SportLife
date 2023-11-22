@@ -9,9 +9,18 @@ export function Header(){
 
             
             <div>
-                <Link to="/"> Home </Link>
-                <Link to="/sobre">Sobre </Link>
-                <Link to="/contato">Contato</Link>
+                <Link to="/perfil">
+                <br />
+                Meu Perfil</Link>
+                {/* <Link to="/"> 
+                <br />
+                HOME </Link> */}
+                <Link to="/sobre">
+                <br />    
+                Sobre </Link>
+                <Link to="/contato">
+                <br />    
+                Contato</Link>
             </div>
 
         </header>

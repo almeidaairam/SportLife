@@ -27,7 +27,6 @@ header h2 {
 header a {
     color: #fff;
     font-size: 18px;
-    margin-left: 1vh;
     font-weight: 500;
     transition: 0.8s;
     text-decoration: inherit;
