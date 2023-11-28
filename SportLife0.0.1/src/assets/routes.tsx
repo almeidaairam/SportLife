@@ -6,8 +6,8 @@ import { Contato } from "../pages/contato/index";
 import { Perfil } from "../pages/perfil/index";
 import { Layout } from "../Components/Layout";
 import { NotFound } from "../pages/NotFound";
-import { Cadastro } from "../pages/cadastro";
-import { Login } from "../pages/login";
+import Cadastro from "../pages/cadastro";
+import Login from "../pages/login";
 
 
 const router = createBrowserRouter ([

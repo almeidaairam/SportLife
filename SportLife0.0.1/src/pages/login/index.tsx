@@ -1,86 +1,18 @@
-// import { Link } from 'react-router-dom'
-import '../login/login.css'
-import { useState } from 'react'
-import { db } from '../../services/firebaseConnection'
-import {
-    getDocs,
-    collection,
-    orderBy,
-    query,
-    doc,
-    getDoc,
-} from 'firebase/firestore'
+import React from 'react';
+import LoginForm from '../../Components/Logar/index';
 
-interface Consulta {
-    usuario: string;
-    senha: string
-}
+const LoginPage: React.FC = () => {
+  const handleLogin = () => {
+    // Implemente qualquer lógica adicional após o login, se necessário
+    console.log('Usuário logado com sucesso!');
+  };
 
-export function Login() {
+  return (
+    <div>
+      <h1>Página de Login</h1>
+      <LoginForm onLogin={handleLogin} />
+    </div>
+  );
+};
 
-    const cadastroRef = collection(db, "CADASTRO")
-    const queryRef = query(cadastroRef)
-
-    getDocs(queryRef)
-
-        .then((snapshot) => {
-            let lista = [] as Consulta[];
-
-            snapshot.forEach((doc) => {
-                lista.push({
-                    usuario: doc.data().usuario,
-                    senha: doc.data().senha
-
-                })
-            })
-
-            const [formData, setFormData] = useState({
-                user: '',
-                senha: '',
-            });
-
-            const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-                const { name, value } = e.target;
-                setFormData({
-                    ...formData,
-                    [name]: value,
-                });
-            };
-
-            const handleSubmit = (e: React.FormEvent) => {
-                e.preventDefault();
-                // Aqui você pode enviar os dados do cliente para onde desejar
-                console.log('Dados do cliente:', formData);
-            };
-
-            return (
-                <div >
-                    <form onSubmit={handleSubmit}>
-                        <div>
-                            <h2>Login</h2>
-                            <br />
-                            <label>Nome de usuário:</label>
-                            <input
-                                type="text"
-                                name="nome de usuário"
-                                value={formData.user}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label>Senha:</label>
-                            <input
-                                type="password"
-                                name="senha"
-                                value={formData.senha}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <button id="btt" type="submit">Enviar</button>
-                    </form>
-                </div>
-            );
-        })
-}
+export default LoginPage;
