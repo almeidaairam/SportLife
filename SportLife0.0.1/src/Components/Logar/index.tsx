@@ -33,8 +33,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
 
   return (
     <div>
-      <h2>Login</h2>
       <form>
+        <h2>Login</h2>
         <div>
           <label>Email:</label>
           <input type="email" value={email} onChange={handleEmailChange} />
@@ -43,6 +43,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
           <label>Senha:</label>
           <input type="password" value={senha} onChange={handleSenhaChange} />
         </div>
+        <div>
+                <p>Não possui cadastro?<a href="/">Cadastre-se</a></p>
+                </div>
         <button type="button" onClick={handleLogin}>
           Entrar
         </button>

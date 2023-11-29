@@ -46,8 +46,8 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }) => {
 
     return (
         <div>
-            <h2>Cdastro</h2>
             <form>
+                <h2>Cdastro</h2>
                 <div>
                     <label>Email:</label>
                     <input type="email" value={email} onChange={handleEmailChange} />
@@ -55,6 +55,9 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }) => {
                 <div>
                     <label>Senha:</label>
                     <input type="password" value={senha} onChange={handleSenhaChange} />
+                </div>
+                <div>
+                <p>já possui cadastro?<a href="/login">Login</a></p>
                 </div>
                 <button type="button" onClick={handleRegister}>
                     Cadastrar

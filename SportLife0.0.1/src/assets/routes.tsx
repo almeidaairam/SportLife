@@ -12,7 +12,7 @@ import Login from "../pages/login";
 
 const router = createBrowserRouter ([
     {
-        path:"/cadastro",
+        path:"/",
         element:<Cadastro/>
     },
     {
@@ -23,7 +23,7 @@ const router = createBrowserRouter ([
         
         element: <Layout/>,
         children: [{
-            path:"/",
+            path:"/home",
             element:<Home/>
         },
         {
