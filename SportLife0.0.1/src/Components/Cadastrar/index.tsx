@@ -29,7 +29,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }) => {
             
             //Atualizar o perfil do usuário com um nome (opcional)
             await updateProfile(userCredential.user, { displayName: 'Novo usuário' });
-            navigate('/');
+            navigate('/login');
 
             //Adicionar informações adicionais ao Firestore
             const userDocRef = doc(db, 'users', userCredential.user.uid);
@@ -46,8 +46,8 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }) => {
 
     return (
         <div>
-            <form>
-                <h2>Cdastro</h2>
+            <form >
+                <h2>Cadastro</h2>
                 <div>
                     <label>Email:</label>
                     <input type="email" value={email} onChange={handleEmailChange} />
@@ -57,7 +57,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegister }) => {
                     <input type="password" value={senha} onChange={handleSenhaChange} />
                 </div>
                 <div>
-                <p>já possui cadastro?<a href="/login">Login</a></p>
+                <p>já possui cadastro? <a href="/login">Login</a></p>
                 </div>
                 <button type="button" onClick={handleRegister}>
                     Cadastrar

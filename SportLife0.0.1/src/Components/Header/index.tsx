@@ -22,8 +22,7 @@ export function Header(){
                 <br />    
                 Contato</Link>
             </div>
-
-        </header>
+                </header>
 
 
     )

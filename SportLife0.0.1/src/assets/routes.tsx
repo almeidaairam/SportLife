@@ -39,7 +39,7 @@ const router = createBrowserRouter ([
             path:"/perfil",
             element:<Perfil/>
         },
-    
+        
         {
             path:"*",
             element:<NotFound/>

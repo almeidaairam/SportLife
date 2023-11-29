@@ -25,7 +25,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
     try {
       await signInWithEmailAndPassword(auth, email, senha);
       onLogin();
-      navigate('/')
+      navigate('/home')
     } catch (error) {
       console.error('Erro no login:'+error);
     }
